@@ -6,17 +6,18 @@ Uma aplicação web em tempo real para detecção de poses humanas usando **Medi
 
 
 
-![Pose Estimation Demo](https://img.shields.io/badge/Status-Funcionando-brightgreen)## Funcionalidades
+![Pose Estimation Demo](https://img.shields.io/badge/Status-Funcionando-brightgreen)
 
 ![Python](https://img.shields.io/badge/Python-3.7+-blue)
 
-![MediaPipe](https://img.shields.io/badge/MediaPipe-0.10+-orange)- **Detecção de pose em tempo real** via webcam
+![MediaPipe](https://img.shields.io/badge/MediaPipe-0.10+-orange)
 
-![Flask](https://img.shields.io/badge/Flask-3.0+-red)- **Suporte para múltiplas pessoas** (até 15 simultaneamente)
+![Flask](https://img.shields.io/badge/Flask-3.0+-red)
 
-- **Cálculo de ângulos articulares** (cotovelo, joelho)
 
-## Funcionalidades- **Interface web responsiva** com design moderno
+
+
+## Funcionalidades
 
 - **Detecção de múltiplas pessoas**: Até **15 pessoas simultaneamente**- **Controles por teclado** para melhor experiência
 
@@ -27,7 +28,7 @@ Uma aplicação web em tempo real para detecção de poses humanas usando **Medi
 - **Controles por teclado**: Atalhos para melhor experiência- Webcam funcionando
 
 
-## 🔧 Tecnologias Utilizadas## 🛠️ Instalação
+## Tecnologias Utilizadas## Instalação
 
 
 - **Backend**: Python 3.7+, Flask, MediaPipe Tasks1. **Clone ou baixe os arquivos do projeto**
@@ -202,11 +203,5 @@ pose_estimation/# Testar câmera manualmente
 
 └── pose_landmarker_full.task # Modelo MediaPipe (baixado automaticamente)- Mac: Permitir acesso à câmera nas configurações
 
-```
-
-### Porta 5000 ocupada
-
-## PerformanceAlterar porta no final do arquivo `pose_inference.py`:
-
-```python
+```bash
 
