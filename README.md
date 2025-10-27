@@ -61,147 +61,53 @@ pip install opencv-python mediapipe flask numpy
 
 ### 1. Clone ou baixe o projeto│   └── index.html       # Interface web
 
-```bash├── static/
+```bash
+git clone [URL_DO_PROJETO]
+cd AULA4-Computer_Vision_pose_estimation
+```
 
-git clone [URL_DO_PROJETO]│   └── logo_ciag_branco.svg  # Logo CIAg
-
-cd AULA4-Computer_Vision_pose_estimation└── README.md            # Este arquivo
-
-``````
-
-
-
-### 2. Execução automática (Recomendado)## Como usar
+### 2. Execução automática (Recomendado)
 
 ```bash
+./start_app.sh
+```
 
-./start_app.sh### Método 1: Script de inicialização (Recomendado)
-
-``````bash
-
-python run_app.py
-
-### 3. Execução manual```
+### 3. Execução manual
 
 ```bash
+# Criar ambiente virtual
+python3 -m venv venv
+source venv/bin/activate  # Linux/Mac
+# ou
+venv\Scripts\activate   # Windows
 
-# Criar ambiente virtual### Método 2: Diretamente
+# Instalar dependências
+pip install -r requirements.txt
 
-python3 -m venv venv```bash
+# Executar aplicação
+./start_app.sh
+# ou
+python3 pose_inference.py
+```
 
-source venv/bin/activate  # Linux/Macpython pose_inference.py
+## Como Usar
 
-# ou```
+### Método 1: Script de inicialização (Recomendado)
 
-venv\\Scripts\\activate   # Windows
+```bash
+./start_app.sh
+```
+
+### Método 2: Diretamente
+
+```bash
+python pose_inference.py
+```
 
 ### Método 3: Via terminal
 
-# Instalar dependências```bash
-
-pip install -r requirements.txtcd /caminho/para/o/projeto
-
-python -m flask --app pose_inference run --host=0.0.0.0 --port=5000
-
-# Executar aplicação```
-
-python3 pose_inference.py
-
-```## Acesso
-
-
-
-## Como UsarApós iniciar a aplicação, acesse:
-
-- **Local:** http://localhost:5000
-
-1. **Inicie a aplicação**: Execute `./start_app.sh`- **Rede local:** http://SEU_IP:5000
-
-2. **Acesse no navegador**: http://localhost:5000
-
-3. **Posicione-se**: Fique em frente à câmera## Controles
-
-4. **Veja a detecção**: Os landmarks da pose aparecerão em tempo real
-
-| Tecla | Função |
-
-### Controles de Teclado|-------|--------|
-
-| `F` | Alternar tela cheia |
-
-| Tecla | Função || `R` | Resetar visualização |
-
-|-------|--------|| `ESC` | Sair da tela cheia |
-
-| `F` | Alternar tela cheia |
-
-| `R` | Recarregar página |## Interface
-
-| `ESC` | Sair da tela cheia |
-
-- **Tela principal:** Visualização da câmera com detecções
-
-### Tela Principal- **Indicadores:** FPS, número de poses detectadas
-
-- **Vídeo em tela cheia**: Ocupa toda a área disponível- **Ângulos:** Exibidos próximos às articulações
-
-- **Landmarks coloridos**: Pontos e conexões da pose em tempo real
-
-- **Contador de pessoas**: "Pessoas detectadas: X/15" no vídeo## Configuração Avançada
-
-
-
-### MediaPipe Tasks### Ajustar sensibilidade da detecção
-
-```pythonPara MediaPipe Tasks (linha ~30):
-
-base_options = python.BaseOptions(model_asset_path="pose_landmarker_full.task")
-
-options = vision.PoseLandmarkerOptions(
-
-    base_options=base_options,
-    num_poses=15,  # Até 15 pessoas, 
-    output_segmentation_masks=False,
-    min_pose_detection_confidence=0.5,
-    min_pose_presence_confidence=0.5,
-    min_tracking_confidence=0.5
-)
-
-```### Personalizar cores dos landmarks
-
-No método `_draw_angles` (linha ~80):
-
-### Câmera```python
-
-- **Resolução**: 1280x720 (padrão)mp_drawing.DrawingSpec(color=(245, 117, 66), thickness=2, circle_radius=2)
-
-- **FPS**: 20-30 FPS (dependendo do hardware)```
-
-- **Formato**: MJPEG streaming
-
-``````bash
-
-pose_estimation/# Testar câmera manualmente
-
-├── pose_inference.py           # Aplicação principal Flaskpython -c "import cv2; cap=cv2.VideoCapture(0); print('Câmera OK' if cap.isOpened() else 'Câmera ERRO')"
-
-├── start_app.sh               # Script de inicialização```
-
-├── requirements.txt           # Dependências Python
-
-├── README.md                  # Este arquivo### MediaPipe Tasks não disponível
-
-├── venv/                      # Ambiente virtualO código faz fallback automático para MediaPipe clássico se Tasks não estiver disponível.
-
-├── templates/
-
-│   └── index.html            # Interface web### Erro de permissão da câmera
-
-├── static/- Linux: Adicionar usuário ao grupo `video`
-
-│   └── logo_ciag_branco.svg  # Logo CIAg- Windows: Verificar configurações de privacidade
-
-└── pose_landmarker_full.task # Modelo MediaPipe (baixado automaticamente)- Mac: Permitir acesso à câmera nas configurações
-
 ```bash
+cd /caminho/para/o/projeto
+python -m flask --app pose_inference run --host=0.0.0.0 --port=5000
+```
 

@@ -5,7 +5,7 @@ echo "=================================="
 
 # Ativar ambiente virtual
 if [ -d "venv" ]; then
-    echo "🔧 Ativando ambiente virtual..."
+    echo "Ativando ambiente virtual..."
     source venv/bin/activate
 fi
 
